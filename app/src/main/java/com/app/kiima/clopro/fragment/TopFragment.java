@@ -8,6 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.kiima.clopro.R;
+import com.app.kiima.clopro.sample.SampleAdapter;
+import com.app.kiima.clopro.sample.SampleData;
+import com.etsy.android.grid.StaggeredGridView;
+
+import java.util.ArrayList;
 
 /**
  * トップ画面
@@ -15,6 +20,10 @@ import com.app.kiima.clopro.R;
  * Created by imaikeisuke on 2016/03/02.
  */
 public class TopFragment extends Fragment {
+
+    private StaggeredGridView mGridView;
+    private SampleAdapter mAdapter;
+    private ArrayList<String> mData;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,5 +34,30 @@ public class TopFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_top, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mGridView = (StaggeredGridView) getView().findViewById(R.id.fragment_top_grid_view);
+
+        if (savedInstanceState == null) {
+            final LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+        }
+
+        if (mAdapter == null) {
+            mAdapter = new SampleAdapter(getActivity(), R.id.txt_line1);
+        }
+
+        if (mData == null) {
+            mData = SampleData.generateSampleData();
+        }
+
+        for (String data : mData) {
+            mAdapter.add(data);
+        }
+
+        mGridView.setAdapter(mAdapter);
     }
 }
