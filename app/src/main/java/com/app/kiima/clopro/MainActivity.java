@@ -1,10 +1,13 @@
 package com.app.kiima.clopro;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.app.kiima.clopro.fragment.TopFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        TopFragment topFragment = new TopFragment();
+        fragmentManager.beginTransaction().add(R.id.content_main_fragment_container_frame_layout, topFragment).commit();
     }
 
     @Override
