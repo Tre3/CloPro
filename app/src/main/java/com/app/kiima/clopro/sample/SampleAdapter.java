@@ -55,7 +55,7 @@ public class SampleAdapter extends ArrayAdapter<String> {
             convertView = mLayoutInflater.inflate(R.layout.list_item_sample, parent, false);
             vh = new ViewHolder();
             vh.txtLineOne = (DynamicHeightTextView) convertView.findViewById(R.id.txt_line1);
-            vh.btnGo = (Button) convertView.findViewById(R.id.btn_go);
+//            vh.btnGo = (Button) convertView.findViewById(R.id.btn_go);
 
             convertView.setTag(vh);
         } else {
@@ -73,13 +73,13 @@ public class SampleAdapter extends ArrayAdapter<String> {
         vh.txtLineOne.setHeightRatio(positionHeight);
         vh.txtLineOne.setText(getItem(position) + position);
 
-        vh.btnGo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                Toast.makeText(getContext(), "Button Clicked Position " +
-                        position, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        vh.btnGo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(final View v) {
+//                Toast.makeText(getContext(), "Button Clicked Position " +
+//                        position, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         return convertView;
     }
