@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * トップ画面
  *
- * Created by imaikeisuke on 2016/03/02.
+ * Created by Tre3 on 2016/03/02.
  */
 public class TopFragment extends Fragment {
 
