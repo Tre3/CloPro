@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * ImageSearch model.
- *
+ * <p>
  * Created by Tre3 on 2016/11/27.
  */
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Photos model
- *
+ * <p>
  * Created by Tre3 on 2016/11/27.
  */
 

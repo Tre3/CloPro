@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Photo model.
- *
- * Created by keisuke on 2016/11/27.
+ * <p>
+ * Created by Tre3 on 2016/11/27.
  */
 
 public class Photo {
