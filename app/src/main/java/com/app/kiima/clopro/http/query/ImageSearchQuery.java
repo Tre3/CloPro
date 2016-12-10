@@ -18,7 +18,7 @@ public class ImageSearchQuery {
         query.put("sort", "relevance");
         query.put("privacy_filter", "1");
         query.put("content_type", "1");
-        query.put("per_page", "1");
+        query.put("per_page", "10");
         query.put("format", "json");
         query.put("nojsoncallback", "1");
         query.put("text", searchWord);

@@ -14,8 +14,11 @@ import com.app.kiima.clopro.constants.Constants;
 import com.app.kiima.clopro.http.FlickrImageSearchService;
 import com.app.kiima.clopro.http.client.CloProClient;
 import com.app.kiima.clopro.http.model.ImageSearch;
+import com.app.kiima.clopro.http.model.Photo;
 import com.app.kiima.clopro.http.query.ImageSearchQuery;
+import com.app.kiima.clopro.util.url.ImageUrlBuilder;
 
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -62,8 +65,12 @@ public class SearchResultFragment extends Fragment {
         response.enqueue(new Callback<ImageSearch>() {
             @Override
             public void onResponse(Call<ImageSearch> call, Response<ImageSearch> response) {
-                Log.d("test1", "success");
-                Log.d("test1", response.body().getPhotos().getPhoto().get(0).getId() + "");
+                List<Photo> photoList = response.body().getPhotos().getPhoto();
+                ImageUrlBuilder imageUrlBuilder = new ImageUrlBuilder();
+
+                for (Photo photo:photoList) {
+                    Log.d("test1", "onResponse: " + imageUrlBuilder.createImageUrl(photo));
+                }
             }
 
             @Override
