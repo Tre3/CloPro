@@ -3,6 +3,7 @@ package com.app.kiima.clopro.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.app.kiima.clopro.R;
+import com.app.kiima.clopro.constants.Constants;
 
 /**
  * Created by Tre3 on 2016/12/04.
@@ -55,6 +57,11 @@ public class SearchFragment extends Fragment {
     };
 
     private void performSearch(String string) {
-
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        SearchResultFragment searchResultFragment = new SearchResultFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.BUNDLE_KEY_SEARCH_WORD, string);
+        searchResultFragment.setArguments(bundle);
+        fragmentManager.beginTransaction().add(R.id.content_main_fragment_container_frame_layout, searchResultFragment).commit();
     }
 }

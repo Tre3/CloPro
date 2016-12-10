@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.app.kiima.clopro.fragment.SearchFragment;
 import com.app.kiima.clopro.fragment.TopFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        TopFragment topFragment = new TopFragment();
+        SearchFragment topFragment = new SearchFragment();
         fragmentManager.beginTransaction().add(R.id.content_main_fragment_container_frame_layout, topFragment).commit();
     }
 
