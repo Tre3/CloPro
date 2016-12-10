@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">CloPro</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Search Result -->
+    <string name="search_result_empty">検索結果がありません</string>
 </resources>
