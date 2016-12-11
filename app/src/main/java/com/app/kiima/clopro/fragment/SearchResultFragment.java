@@ -8,8 +8,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridView;
 
 import com.app.kiima.clopro.R;
+import com.app.kiima.clopro.adapter.SearchResultAdapter;
 import com.app.kiima.clopro.constants.Constants;
 import com.app.kiima.clopro.http.FlickrImageSearchService;
 import com.app.kiima.clopro.http.client.CloProClient;
@@ -18,6 +20,7 @@ import com.app.kiima.clopro.http.model.Photo;
 import com.app.kiima.clopro.http.query.ImageSearchQuery;
 import com.app.kiima.clopro.util.url.ImageUrlBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -68,9 +71,17 @@ public class SearchResultFragment extends Fragment {
                 List<Photo> photoList = response.body().getPhotos().getPhoto();
                 ImageUrlBuilder imageUrlBuilder = new ImageUrlBuilder();
 
+                List<String> urlList = new ArrayList<>();
+
                 for (Photo photo:photoList) {
                     Log.d("test1", "onResponse: " + imageUrlBuilder.createImageUrl(photo));
+                    urlList.add(imageUrlBuilder.createImageUrl(photo));
                 }
+
+                GridView gridView = (GridView) getView().findViewById(R.id.search_result_grid);
+                SearchResultAdapter<String> searchResultAdapter = new SearchResultAdapter<>(getActivity(), 0, urlList);
+
+                gridView.setAdapter(searchResultAdapter);
             }
 
             @Override
