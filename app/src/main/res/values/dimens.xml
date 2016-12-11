@@ -6,4 +6,7 @@
 
     <!--Search-->
     <dimen name="search_edit_text_margin">10dp</dimen>
+
+    <!-- Search Result -->
+    <dimen name="search_result_image_height">200dp</dimen>
 </resources>
